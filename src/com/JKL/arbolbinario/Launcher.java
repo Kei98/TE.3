@@ -37,16 +37,42 @@ public class Launcher {
 	ab.insert(44);
 
 	ab.insert(39);
-
+	
+	System.out.println("Raíz:");
+	System.out.println(ab.root.element);
 	System.out.println();
 	ab.diferenciaAB(ab);
 	System.out.println();
+	System.out.println("InOrden:");
 	ab.InOrden(ab.root);
 	System.out.println();
+	System.out.println("PreOrden");
 	ab.PreOrden(ab.root);
 	System.out.println();
+	System.out.println("PostOrden");
 	ab.PostOrden(ab.root);
-
+	
+	
+//	Eliminación de una hoja
+	ab.delete(46);
+//	Eliminación de nodo con 2 hijos
+	ab.delete(50);
+	ab.delete(45);
+//	Eliminación de nodo con 1 hijo
+	ab.delete(38);
+	
+	System.out.println("");
+	ab.diferenciaAB(ab);
+	
+	System.out.println();
+	System.out.println("Raíz:");
+	System.out.println(ab.root.element);
+	
+	
+	
+	System.out.println("InOrden:");
+	ab.InOrden(ab.root);
+	System.out.println();
     }
 
 }

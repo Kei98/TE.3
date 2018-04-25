@@ -1,5 +1,11 @@
 package com.JKL.arbolbinario;
 
+
+/**
+ * @authors Aykull, Jonathana1196, Kei98 
+ *
+ */
+
 public class ArbolBinario {
 	 NodoArbol root;
 
@@ -31,7 +37,6 @@ public class ArbolBinario {
 		if (current == null) {
 		    return null;
 		} else if (current.left == null) {
-		    System.out.println(current.element);
 		    return current;
 		} else {
 		    return findMin(current.left);
@@ -50,7 +55,6 @@ public class ArbolBinario {
 		if (current == null) {
 		    return null;
 		} else if (current.right == null) {
-		    System.out.println(current.element);
 		    return current;
 		} else {
 		    return findMax(current.right);
@@ -71,7 +75,7 @@ public class ArbolBinario {
 		}
 		return current;
 	    }
-
+	    
 	    public void PreOrden(NodoArbol root) {
 		if (root != null) {
 		    System.out.println(root.element);
@@ -96,10 +100,29 @@ public class ArbolBinario {
 		}
 	    }
 		
-		public void delete(NodoArbol nodo) {
-			if(nodo.right == null && nodo.left == null) {
-				
+		public NodoArbol delete(int element) {
+			if(this.root == null) {
+				return null;
+			} else {
+				return delete(element, this.root);
 			}
+		}
+		private NodoArbol delete(int element, NodoArbol current) {
+			if(current == null) {
+				return current;
+			}
+			if(current.element > element) {
+				current.left = delete(element, current.left);
+			} else if(current.element < element) {
+				current.right = delete(element, current.right);
+			} else if(current.left != null && current.right != null) {
+				current.element = findMin(current.right).element;
+				element = findMin(current.right).element;
+				current.right = delete(element, current.right);
+			} else {
+				current = current.right != null ? current.right : current.left;
+			}
+			return current;
 		}
    }
 
