@@ -46,10 +46,6 @@ public class ArbolBinario {
 	return findMax(this.root);
     }
 
-    public void diferenciaAB(ArbolBinario ab) {
-	System.out.println("La diferencia entre nodos es: " + (ab.findMax().element - ab.findMin().element));
-    }
-
     private NodoArbol findMax(NodoArbol current) {
 	if (current == null) {
 	    return null;
@@ -60,7 +56,11 @@ public class ArbolBinario {
 	}
     }
 
-    public int getFB(NodoArbol n) {
+    public void diferenciaAB(ArbolBinario ab) {
+	System.out.println("La diferencia entre nodos es: " + (ab.findMax().element - ab.findMin().element));
+    }
+
+    private int getFB(NodoArbol n) {
 	if (n == null) {
 	    return -1;
 	} else {
@@ -68,7 +68,7 @@ public class ArbolBinario {
 	}
     }
 
-    public NodoArbol rotacionSimpleIzquierda(NodoArbol n) {
+    private NodoArbol rotacionSimpleIzquierda(NodoArbol n) {
 	NodoArbol n1 = n.left;
 	n.left = n1.right;
 	n1.right = n;
@@ -78,7 +78,7 @@ public class ArbolBinario {
 
     }
 
-    public NodoArbol rotacionSimpleDerecha(NodoArbol n) {
+    private NodoArbol rotacionSimpleDerecha(NodoArbol n) {
 	NodoArbol n1 = n.right;
 	n.right = n1.left;
 	n1.left = n;
@@ -88,14 +88,14 @@ public class ArbolBinario {
 
     }
 
-    public NodoArbol rotacionDobleIzquierdaDerecha(NodoArbol n2) {
+    private NodoArbol rotacionDobleIzquierdaDerecha(NodoArbol n2) {
 	NodoArbol n3;
 	n2.left = rotacionSimpleDerecha(n2.left);
 	n3 = rotacionSimpleIzquierda(n2);
 	return n3;
     }
 
-    public NodoArbol rotacionDobleDerecha(NodoArbol n2) {
+    private NodoArbol rotacionDobleDerecha(NodoArbol n2) {
 	NodoArbol n3;
 	n2.right = rotacionSimpleIzquierda(n2.right);
 	n3 = rotacionSimpleDerecha(n2);
@@ -128,7 +128,7 @@ public class ArbolBinario {
 	}
     }
 
-    public NodoArbol insertAVL(NodoArbol nuevo, NodoArbol current) {
+    private NodoArbol insertAVL(NodoArbol nuevo, NodoArbol current) {
 	NodoArbol raizPadre = current;
 	if (nuevo.element < current.element) {
 	    if (current.left == null) {
