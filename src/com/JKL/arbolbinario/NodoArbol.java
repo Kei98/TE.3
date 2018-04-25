@@ -9,7 +9,7 @@ public class NodoArbol {
     public NodoArbol(int element) {
 	this.element = element;
 	this.right = this.left = null;
-	this.fb = -1;
+	this.fb = 0;
     }
 
 }
