@@ -10,7 +10,7 @@ public class NodoArbol {
     public NodoArbol(int element) {
 	this.element = element;
 	this.right = this.left = null;
-	this.height = 0;
+	this.height = 1;
     }
 
 }
