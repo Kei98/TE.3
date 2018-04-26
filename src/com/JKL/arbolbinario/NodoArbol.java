@@ -5,11 +5,12 @@ public class NodoArbol {
     int fb;
     NodoArbol right;
     NodoArbol left;
+    int height;
 
     public NodoArbol(int element) {
 	this.element = element;
 	this.right = this.left = null;
-	this.fb = 0;
+	this.height = 0;
     }
 
 }
